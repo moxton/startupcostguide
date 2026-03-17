@@ -21,13 +21,13 @@ export default function MethodologyPage() {
 
         <p><strong>Step 3: Practitioner input.</strong> Wherever possible, we cross-reference our numbers against the real-world experience of business owners in each industry. Forums, communities, podcasts, and direct conversations with operators provide the ground-truth check that catches costs our desk research misses.</p>
 
-        <p><strong>Step 4: Editorial review.</strong> Every guide goes through a final editorial review focused on the hidden costs, breakeven timelines, and cost-reduction tips — the sections where generic research tends to miss the mark and practical experience fills the gap. We flag anything that doesn&apos;t pass the &ldquo;would a real business owner agree with this?&rdquo; test.</p>
+        <p><strong>Step 4: Editorial review.</strong> Every guide goes through a final editorial review focused on the hidden costs, breakeven timelines, and cost-reduction tips  - the sections where generic research tends to miss the mark and practical experience fills the gap. We flag anything that doesn&apos;t pass the &ldquo;would a real business owner agree with this?&rdquo; test.</p>
 
         <h2>How We Present Cost Ranges</h2>
 
         <p><strong>We use ranges, not single numbers.</strong> Startup costs vary by location, scale, quality of materials, and business decisions. A single number would be misleading. Our ranges are designed to capture the realistic low end (a bootstrapped, cost-conscious approach) and the realistic high end (a fully invested, professional-grade setup). We exclude extreme outliers on both ends.</p>
 
-        <p><strong>We separate one-time and recurring costs.</strong> Every cost breakdown table identifies whether each expense is a one-time startup cost, a monthly recurring cost, or an annual recurring cost. This distinction matters because a $500/month recurring cost is a $6,000/year commitment — and many new business owners fail to account for the cumulative weight of recurring expenses.</p>
+        <p><strong>We separate one-time and recurring costs.</strong> Every cost breakdown table identifies whether each expense is a one-time startup cost, a monthly recurring cost, or an annual recurring cost. This distinction matters because a $500/month recurring cost is a $6,000/year commitment  - and many new business owners fail to account for the cumulative weight of recurring expenses.</p>
 
         <p><strong>We include hidden costs.</strong> Every guide has a dedicated section covering 3–5 costs that most first-time business owners miss. These are sourced from practitioner feedback, industry forums, and our own experience. They&apos;re the costs that show up in month three, not on your initial budget spreadsheet.</p>
 
@@ -41,7 +41,7 @@ export default function MethodologyPage() {
 
         <p>Each guide includes a curated list of tools and services relevant to that specific business type. Our selection criteria are value (does this tool justify its cost for a startup?), relevance (is it genuinely useful for this specific business type, not just a generic recommendation?), and reputation (is this a product we&apos;d use ourselves or recommend to a friend?).</p>
 
-        <p>Some tool recommendations include affiliate links, meaning we may earn a commission if you sign up through our link — at no additional cost to you. Affiliate relationships never influence which tools we recommend. We recommend the same tools whether or not an affiliate program exists. Tools without affiliate programs appear alongside those with them.</p>
+        <p>Some tool recommendations include affiliate links, meaning we may earn a commission if you sign up through our link  - at no additional cost to you. Affiliate relationships never influence which tools we recommend. We recommend the same tools whether or not an affiliate program exists. Tools without affiliate programs appear alongside those with them.</p>
 
         <h2>How We Keep Content Current</h2>
 

@@ -105,14 +105,14 @@ export default function HomePage() {
           Regardless of what you&apos;re starting, you&apos;ll need some combination of these.
         </p>
 
-        <p><strong>Business Formation:</strong> <a href="/recommends/legalzoom/" rel="nofollow sponsored" target="_blank">LegalZoom</a> — Form your LLC, get your EIN, and handle basic legal setup in one place.</p>
-        <p><strong>Accounting:</strong> <a href="/recommends/quickbooks/" rel="nofollow sponsored" target="_blank">QuickBooks</a> — Track income, expenses, mileage, and taxes from day one.</p>
-        <p><strong>Business Insurance:</strong> <a href="/recommends/next-insurance/" rel="nofollow sponsored" target="_blank">Next Insurance</a> — General liability, professional liability, and commercial auto quotes in minutes.</p>
-        <p><strong>Payments:</strong> <a href="/recommends/square-pos/" rel="nofollow sponsored" target="_blank">Square</a> — Accept card payments from day one. Free reader, simple pricing.</p>
-        <p><strong>Payroll:</strong> <a href="/recommends/gusto-payroll/" rel="nofollow sponsored" target="_blank">Gusto</a> — When you hire your first employee, Gusto handles payroll, taxes, and benefits.</p>
+        <p><strong>Business Formation:</strong> <a href="/recommends/legalzoom/" rel="nofollow sponsored" target="_blank">LegalZoom</a>  - Form your LLC, get your EIN, and handle basic legal setup in one place.</p>
+        <p><strong>Accounting:</strong> <a href="/recommends/quickbooks/" rel="nofollow sponsored" target="_blank">QuickBooks</a>  - Track income, expenses, mileage, and taxes from day one.</p>
+        <p><strong>Business Insurance:</strong> <a href="/recommends/next-insurance/" rel="nofollow sponsored" target="_blank">Next Insurance</a>  - General liability, professional liability, and commercial auto quotes in minutes.</p>
+        <p><strong>Payments:</strong> <a href="/recommends/square-pos/" rel="nofollow sponsored" target="_blank">Square</a>  - Accept card payments from day one. Free reader, simple pricing.</p>
+        <p><strong>Payroll:</strong> <a href="/recommends/gusto-payroll/" rel="nofollow sponsored" target="_blank">Gusto</a>  - When you hire your first employee, Gusto handles payroll, taxes, and benefits.</p>
 
         <p style={{ fontSize: 13, color: 'var(--mid)', fontStyle: 'italic', padding: '12px 16px', background: '#fafaf8', borderRadius: 8, borderLeft: '3px solid var(--light)', marginTop: 24 }}>
-          Some links above are affiliate links. We may earn a commission if you sign up — at no extra cost to you. We only recommend tools we&apos;d use ourselves.
+          Some links above are affiliate links. We may earn a commission if you sign up  - at no extra cost to you. We only recommend tools we&apos;d use ourselves.
         </p>
       </div>
     </>
