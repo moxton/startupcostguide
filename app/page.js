@@ -33,7 +33,7 @@ export default function HomePage() {
       {/* HERO */}
       <section className="scg-hero">
         <div className="scg-hero-inner">
-          <div className="scg-hero-badge">Written by a founder who&apos;s done it</div>
+          <div className="scg-hero-badge">Researched from scratch, not copied</div>
           <h1>How Much Does It <em>Really</em> Cost to Start a Business?</h1>
           <p>Not the vague &ldquo;it depends&rdquo; answer. Real cost breakdowns with line items, hidden expenses, and the numbers most guides leave out.</p>
         </div>
@@ -86,12 +86,12 @@ export default function HomePage() {
       {/* CREDIBILITY BANNER */}
       <section className="scg-cred">
         <div className="scg-cred-inner">
-          <div className="scg-cred-avatar">MO</div>
+          <div className="scg-cred-avatar">SCG</div>
           <div>
-            <h3>Written by someone who&apos;s actually done it</h3>
+            <h3>Why trust these numbers?</h3>
             <p>
-              <strong>Michael Oxton</strong> spent $180,000 starting Night Shift Brewing — and got a meaningful chunk of that wrong. Over 13 years, he grew it into one of New England&apos;s largest independent breweries before selling the company. Every cost breakdown on this site is informed by the expensive lessons of actually doing it.{' '}
-              <Link href="/about">Read more &rarr;</Link>
+              <strong>Most startup cost guides are useless.</strong> Not because the writers are lazy, but because they&apos;re copying each other. Article A cites Article B cites Article C, and somewhere back there someone just made a number up. We built Startup Cost Guide because we got tired of it. Every breakdown here is researched from scratch: SBA data, industry reports, and real conversations with people who&apos;ve actually opened these businesses.{' '}
+              <Link href="/methodology">Read our methodology &rarr;</Link>
             </p>
           </div>
         </div>

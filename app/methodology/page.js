@@ -21,7 +21,7 @@ export default function MethodologyPage() {
 
         <p><strong>Step 3: Practitioner input.</strong> Wherever possible, we cross-reference our numbers against the real-world experience of business owners in each industry. Forums, communities, podcasts, and direct conversations with operators provide the ground-truth check that catches costs our desk research misses.</p>
 
-        <p><strong>Step 4: Founder review.</strong> Every guide is reviewed by Michael Oxton, who has firsthand experience starting, operating, and selling a business. This review focuses on the hidden costs, breakeven timelines, and cost-reduction tips — the sections where generic research tends to miss the mark and practical experience fills the gap.</p>
+        <p><strong>Step 4: Editorial review.</strong> Every guide goes through a final editorial review focused on the hidden costs, breakeven timelines, and cost-reduction tips — the sections where generic research tends to miss the mark and practical experience fills the gap. We flag anything that doesn&apos;t pass the &ldquo;would a real business owner agree with this?&rdquo; test.</p>
 
         <h2>How We Present Cost Ranges</h2>
 
@@ -47,7 +47,7 @@ export default function MethodologyPage() {
 
         <p>Startup costs change over time. Equipment prices fluctuate, insurance rates adjust, and licensing requirements evolve. We review and update our highest-traffic guides quarterly, and all guides are reviewed at least annually. Each guide displays a &ldquo;last updated&rdquo; date so you know how current the information is.</p>
 
-        <p>If you notice a cost that seems outdated or a regulation that has changed, please let us know at <strong>michael@startupcostguide.com</strong>. We take accuracy seriously and update guides within 48 hours of confirming a needed correction.</p>
+        <p>If you notice a cost that seems outdated or a regulation that has changed, please let us know at <strong>hello@startupcostguide.com</strong>. We take accuracy seriously and update guides within 48 hours of confirming a needed correction.</p>
 
         <h2>What We Don&apos;t Do</h2>
 

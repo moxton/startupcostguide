@@ -749,7 +749,8 @@ a:hover {
   color: var(--accent);
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 .scg-cred h3 {
   font-family: var(--serif);
