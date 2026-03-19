@@ -27,10 +27,38 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://startupcostguide.com/#website',
+      url: 'https://startupcostguide.com',
+      name: 'Startup Cost Guide',
+      description: 'Detailed startup cost breakdowns for 100+ business types. Real numbers, hidden costs, and breakeven timelines.',
+      publisher: { '@id': 'https://startupcostguide.com/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://startupcostguide.com/#organization',
+      name: 'Startup Cost Guide',
+      url: 'https://startupcostguide.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://startupcostguide.com/icon.svg',
+      },
+    },
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />

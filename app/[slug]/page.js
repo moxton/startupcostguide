@@ -58,11 +58,37 @@ export default async function SlugPage({ params }) {
     const guide = loadGuideContent(slug);
     if (!guide) notFound();
 
+    const articleSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.title,
+      description: guide.metaDescription,
+      author: {
+        '@type': 'Organization',
+        name: 'Startup Cost Guide',
+        url: 'https://startupcostguide.com',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Startup Cost Guide',
+        url: 'https://startupcostguide.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://startupcostguide.com/icon.svg',
+        },
+      },
+      mainEntityOfPage: `https://startupcostguide.com/${slug}`,
+    };
+
     return (
       <article className="article-wrap">
         <div className="category-badge">{guide.category}</div>
         <div className="cost-badge">{formatRange(guide.costLow, guide.costHigh)}</div>
         <div className="entry-content" dangerouslySetInnerHTML={{ __html: guide.content }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
         {guide.faqSchema && (
           <script
             type="application/ld+json"
