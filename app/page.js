@@ -97,6 +97,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* COMMUNITY DATA CTA */}
+      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px 0' }}>
+        <div className="cost-submit-form">
+          <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none' }}>
+            <h3 style={{ color: 'var(--accent)' }}>Already started a business? Share what you actually spent.</h3>
+            <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 16 }}>
+              We&apos;re building the largest database of real startup costs reported by actual business owners. Your anonymous submission helps the next person plan better. Find your business type and share your numbers.
+            </p>
+            <Link href="/cost-to-start-a-restaurant" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
+              Browse Guides &amp; Submit Your Costs
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ESSENTIAL TOOLS */}
       <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px' }}>
         <div className="scg-section-label" style={{ color: 'var(--mid)' }}>Recommended</div>
