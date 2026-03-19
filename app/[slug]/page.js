@@ -5,6 +5,7 @@ import { join } from 'path';
 import guidesIndex from '@/src/data/guides-index.json';
 import categories from '@/src/data/categories.json';
 import { formatRange } from '@/src/lib/formatCurrency';
+import CostSubmissionForm from '@/src/components/CostSubmissionForm';
 
 // Generate static params for all guides + categories
 export async function generateStaticParams() {
@@ -85,6 +86,7 @@ export default async function SlugPage({ params }) {
         <div className="category-badge">{guide.category}</div>
         <div className="cost-badge">{formatRange(guide.costLow, guide.costHigh)}</div>
         <div className="entry-content" dangerouslySetInnerHTML={{ __html: guide.content }} />
+        <CostSubmissionForm businessType={guide.businessType} slug={slug} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Calculator from '@/src/components/calculator/Calculator';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function CalculatorPage() {
-  return <Calculator />;
+  return (
+    <Suspense>
+      <Calculator />
+    </Suspense>
+  );
 }

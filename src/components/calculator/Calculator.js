@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import calcData from '@/src/data/calculator-data.json';
 import { formatCurrency } from '@/src/lib/formatCurrency';
@@ -29,6 +30,9 @@ function getEquipLabel(v) {
 }
 
 export default function Calculator() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
   const [selectedBiz, setSelectedBiz] = useState(null);
   const [activeCat, setActiveCat] = useState(null);
   const [searchText, setSearchText] = useState('');
@@ -36,9 +40,47 @@ export default function Calculator() {
   const [scale, setScale] = useState(50);
   const [location, setLocation] = useState(50);
   const [equipment, setEquipment] = useState(50);
+  const [initialized, setInitialized] = useState(false);
 
   const wrapRef = useRef(null);
   const resultsRef = useRef(null);
+
+  // Restore state from URL params on mount
+  useEffect(() => {
+    const bizSlug = searchParams.get('biz');
+    const s = searchParams.get('scale');
+    const l = searchParams.get('loc');
+    const e = searchParams.get('equip');
+
+    if (bizSlug) {
+      const biz = DATA.find(d => d.slug === bizSlug);
+      if (biz) {
+        setSelectedBiz(biz);
+        setSearchText(biz.biz);
+      }
+    }
+    if (s) setScale(Math.min(100, Math.max(0, parseInt(s) || 50)));
+    if (l) setLocation(Math.min(100, Math.max(0, parseInt(l) || 50)));
+    if (e) setEquipment(Math.min(100, Math.max(0, parseInt(e) || 50)));
+    setInitialized(true);
+  }, []);
+
+  // Sync state to URL params (without page reload)
+  const updateUrl = useCallback((biz, s, l, e) => {
+    if (!biz) return;
+    const params = new URLSearchParams();
+    params.set('biz', biz.slug);
+    if (s !== 50) params.set('scale', s);
+    if (l !== 50) params.set('loc', l);
+    if (e !== 50) params.set('equip', e);
+    window.history.replaceState(null, '', `/calculator?${params.toString()}`);
+  }, []);
+
+  useEffect(() => {
+    if (initialized && selectedBiz) {
+      updateUrl(selectedBiz, scale, location, equipment);
+    }
+  }, [initialized, selectedBiz, scale, location, equipment, updateUrl]);
 
   // Close dropdown on outside click
   useEffect(() => {
