@@ -32,9 +32,9 @@ export default function HomePage() {
       {/* HERO */}
       <section className="scg-hero">
         <div className="scg-hero-inner">
-          <div className="scg-hero-badge">Researched from scratch, not copied</div>
+          <div className="scg-hero-badge">100 businesses. Real numbers.</div>
           <h1>How Much Does It <em>Really</em> Cost to Start a Business?</h1>
-          <p>Not the vague &ldquo;it depends&rdquo; answer. Real cost breakdowns with line items, hidden expenses, and the numbers most guides leave out.</p>
+          <p>Not &ldquo;it depends.&rdquo; Line items. Hidden costs. The numbers everyone else leaves out.</p>
           <div className="scg-hero-ctas">
             <Link href="/cost-to-start-a-restaurant" className="scg-hero-btn scg-hero-btn-primary">Browse 100 Guides</Link>
             <Link href="/calculator" className="scg-hero-btn scg-hero-btn-secondary">Try the Calculator</Link>
@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="scg-section-label" style={{ color: 'var(--mid)' }}>Most Popular</div>
         <h2 className="scg-section-title" style={{ color: 'var(--ink)' }}>Featured Cost Guides</h2>
         <p style={{ color: 'var(--mid)', fontSize: 18, marginBottom: 48 }}>
-          The highest-demand business types with the deepest cost breakdowns.
+          The businesses people ask about most. The deepest breakdowns we publish.
         </p>
       </div>
 
@@ -66,9 +66,9 @@ export default function HomePage() {
       <section className="scg-categories" style={{ marginTop: 64 }}>
         <div className="scg-categories-inner">
           <div className="scg-section-label">Browse by Category</div>
-          <h2 className="scg-section-title" style={{ color: '#fff' }}>Every Business Type, Covered</h2>
+          <h2 className="scg-section-title" style={{ color: '#fff' }}>Pick Your Industry</h2>
           <p style={{ color: '#9ca3af', fontSize: 18, marginBottom: 40 }}>
-            Detailed cost breakdowns organized by industry.
+            100 businesses. 11 categories. Every cost accounted for.
           </p>
           <div className="scg-cat-grid">
             {categories.map(cat => {
@@ -91,8 +91,8 @@ export default function HomePage() {
         <div className="scg-cred-inner">
           <h3>Why trust these numbers?</h3>
           <p>
-            <strong>Most startup cost guides are useless.</strong> Not because the writers are lazy, but because they&apos;re copying each other. Article A cites Article B cites Article C, and somewhere back there someone just made a number up. We built Startup Cost Guide because we got tired of it. Every breakdown here is researched from scratch: SBA data, industry reports, and real conversations with people who&apos;ve actually opened these businesses.{' '}
-            <Link href="/methodology">Read our methodology &rarr;</Link>
+            <strong>Most startup cost guides are useless.</strong> Not because the writers are lazy. Because they&apos;re copying each other. Article A cites Article B cites Article C. Somewhere back there, someone made a number up. We got tired of it. Every breakdown here starts from scratch: SBA data, industry reports, conversations with people who actually opened these businesses.{' '}
+            <Link href="/methodology">See how we do it &rarr;</Link>
           </p>
         </div>
       </section>
@@ -100,9 +100,9 @@ export default function HomePage() {
       {/* COMMUNITY DATA CTA */}
       <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px 80px' }}>
         <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none' }}>
-          <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22 }}>Already started a business? Share what you actually spent.</h3>
+          <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22 }}>You started a business. What did it actually cost?</h3>
           <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 16, lineHeight: 1.6 }}>
-            We&apos;re building the largest database of real startup costs reported by actual business owners. Your anonymous submission helps the next person plan better.
+            We&apos;re collecting real startup costs from real business owners. Anonymous. 60 seconds. The next person planning your type of business will thank you.
           </p>
           <Link href="/cost-to-start-a-restaurant" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
             Browse Guides &amp; Submit Your Costs

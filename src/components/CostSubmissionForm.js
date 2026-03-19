@@ -46,7 +46,7 @@ export default function CostSubmissionForm({ businessType, slug }) {
     return (
       <div className="cost-submit-form">
         <div className="cost-submit-success">
-          <strong>Thanks for sharing your real numbers.</strong> This helps future business owners plan better. We review every submission and use them to keep our cost ranges accurate.
+          <strong>Thanks.</strong> Your real numbers make this resource better for the next person. We review every submission and use them to keep our cost ranges honest.
         </div>
       </div>
     );
@@ -56,7 +56,7 @@ export default function CostSubmissionForm({ businessType, slug }) {
     return (
       <div className="cost-submit-form">
         <div className="cost-submit-prompt" onClick={() => setOpen(true)}>
-          <strong>Started a {businessType}?</strong> Tell us what you actually spent. Your real numbers help other founders plan better.
+          <strong>Started a {businessType}?</strong> Tell us what you actually spent. The next founder planning this business needs your real numbers.
           <span className="cost-submit-cta">Share your costs</span>
         </div>
       </div>

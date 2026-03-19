@@ -11,51 +11,51 @@ export default function MethodologyPage() {
       <div className="entry-content">
         <h1>How We Calculate Startup Costs</h1>
 
-        <p>Every cost guide on this site follows a consistent research and verification process. Here&apos;s exactly how we arrive at the numbers you see.</p>
+        <p>Every guide follows the same four-step process. Here&apos;s exactly how we get the numbers.</p>
 
-        <h2>Our Research Process</h2>
+        <h2>The Process</h2>
 
-        <p><strong>Step 1: Industry cost benchmarking.</strong> We start with data from industry associations, government sources (SBA, Bureau of Labor Statistics, state licensing agencies), and trade publications specific to each business type. These provide baseline cost ranges for equipment, licensing, insurance, and common operating expenses.</p>
+        <p><strong>Step 1: Industry benchmarking.</strong> We start with government and trade sources: SBA, Bureau of Labor Statistics, state licensing agencies, industry associations. These give us baseline ranges for equipment, licensing, insurance, and operating expenses.</p>
 
-        <p><strong>Step 2: Vendor and supplier pricing.</strong> We verify equipment costs against current pricing from major suppliers and dealers. When we say a commercial espresso machine costs $5,000–$15,000, we&apos;ve checked current prices from La Marzocca, Nuova Simonelli, and their authorized dealers. When we quote insurance ranges, we&apos;ve reviewed quotes from insurers who specialize in that business category.</p>
+        <p><strong>Step 2: Vendor pricing.</strong> We check current prices. When we say a commercial espresso machine costs $5,000 to $15,000, we&apos;ve looked at La Marzocco, Nuova Simonelli, and their dealers. Insurance ranges come from insurers who specialize in that business category.</p>
 
-        <p><strong>Step 3: Practitioner input.</strong> Wherever possible, we cross-reference our numbers against the real-world experience of business owners in each industry. Forums, communities, podcasts, and direct conversations with operators provide the ground-truth check that catches costs our desk research misses.</p>
+        <p><strong>Step 3: Practitioner input.</strong> We cross-reference everything against real business owners. Forums, communities, podcasts, direct conversations. This is the ground-truth check that catches what desk research misses.</p>
 
-        <p><strong>Step 4: Editorial review.</strong> Every guide goes through a final editorial review focused on the hidden costs, breakeven timelines, and cost-reduction tips  - the sections where generic research tends to miss the mark and practical experience fills the gap. We flag anything that doesn&apos;t pass the &ldquo;would a real business owner agree with this?&rdquo; test.</p>
+        <p><strong>Step 4: Editorial review.</strong> Every guide gets a final pass on hidden costs, breakeven timelines, and cost-reduction tips. If it doesn&apos;t pass the &ldquo;would a real business owner agree with this?&rdquo; test, it gets rewritten.</p>
 
-        <h2>How We Present Cost Ranges</h2>
+        <h2>How We Present Costs</h2>
 
-        <p><strong>We use ranges, not single numbers.</strong> Startup costs vary by location, scale, quality of materials, and business decisions. A single number would be misleading. Our ranges are designed to capture the realistic low end (a bootstrapped, cost-conscious approach) and the realistic high end (a fully invested, professional-grade setup). We exclude extreme outliers on both ends.</p>
+        <p><strong>Ranges, not single numbers.</strong> A single number would be a lie. Our ranges capture the realistic low end (bootstrapped, cost-conscious) and the realistic high end (fully invested, professional-grade). Extreme outliers excluded.</p>
 
-        <p><strong>We separate one-time and recurring costs.</strong> Every cost breakdown table identifies whether each expense is a one-time startup cost, a monthly recurring cost, or an annual recurring cost. This distinction matters because a $500/month recurring cost is a $6,000/year commitment  - and many new business owners fail to account for the cumulative weight of recurring expenses.</p>
+        <p><strong>One-time vs. recurring, always separated.</strong> A $500/month recurring cost is a $6,000/year commitment. Many new owners fail to account for the cumulative weight of recurring expenses. Our tables make the distinction impossible to miss.</p>
 
-        <p><strong>We include hidden costs.</strong> Every guide has a dedicated section covering 3–5 costs that most first-time business owners miss. These are sourced from practitioner feedback, industry forums, and our own experience. They&apos;re the costs that show up in month three, not on your initial budget spreadsheet.</p>
+        <p><strong>Hidden costs in every guide.</strong> 3 to 5 costs that most first-time owners miss. Sourced from practitioner feedback and industry forums. The costs that show up in month three, not on your initial spreadsheet.</p>
 
-        <h2>How We Calculate Breakeven Timelines</h2>
+        <h2>Breakeven Timelines</h2>
 
-        <p>Our breakeven estimates are based on realistic revenue projections for each business type, using industry-average pricing, customer volume, and operating costs. We deliberately err on the conservative side. If industry data suggests breakeven in 6–12 months, we may present it as 6–18 months to account for the slower ramp-up most first-time operators experience.</p>
+        <p>We err conservative. If industry data suggests breakeven in 6 to 12 months, we may present 6 to 18. First-time operators almost always ramp slower than averages suggest.</p>
 
-        <p>We also distinguish between breakeven (monthly revenue exceeding monthly costs) and full payback (recouping your total startup investment). These are different milestones, and conflating them is one of the most common mistakes in startup cost content.</p>
+        <p>We also distinguish between breakeven (monthly revenue exceeding monthly costs) and full payback (recouping your total startup investment). Different milestones. Conflating them is one of the most common mistakes in startup cost content.</p>
 
-        <h2>How We Select Recommended Tools</h2>
+        <h2>Tool Recommendations</h2>
 
-        <p>Each guide includes a curated list of tools and services relevant to that specific business type. Our selection criteria are value (does this tool justify its cost for a startup?), relevance (is it genuinely useful for this specific business type, not just a generic recommendation?), and reputation (is this a product we&apos;d use ourselves or recommend to a friend?).</p>
+        <p>Each guide includes tools relevant to that specific business type. Selection criteria: does it justify its cost for a startup, is it genuinely useful for this business type, and would we use it ourselves?</p>
 
-        <p>Some tool recommendations include affiliate links, meaning we may earn a commission if you sign up through our link  - at no additional cost to you. Affiliate relationships never influence which tools we recommend. We recommend the same tools whether or not an affiliate program exists. Tools without affiliate programs appear alongside those with them.</p>
+        <p>Some links are affiliate links. We may earn a commission at no cost to you. Affiliate relationships never influence recommendations. Tools without affiliate programs appear alongside those with them.</p>
 
-        <h2>How We Keep Content Current</h2>
+        <h2>Keeping Current</h2>
 
-        <p>Startup costs change over time. Equipment prices fluctuate, insurance rates adjust, and licensing requirements evolve. We review and update our highest-traffic guides quarterly, and all guides are reviewed at least annually. Each guide displays a &ldquo;last updated&rdquo; date so you know how current the information is.</p>
+        <p>Costs change. Equipment prices shift. Insurance rates adjust. Licensing requirements evolve. High-traffic guides reviewed quarterly. Everything else, at least annually. Each guide displays a &ldquo;last updated&rdquo; date.</p>
 
-        <p>If you notice a cost that seems outdated or a regulation that has changed, please let us know at <strong>hello@startupcostguide.com</strong>. We take accuracy seriously and update guides within 48 hours of confirming a needed correction.</p>
+        <p>Spot something outdated? Email <strong>hello@startupcostguide.com</strong>. We update within 48 hours of confirming a correction is needed.</p>
 
         <h2>What We Don&apos;t Do</h2>
 
-        <p>We don&apos;t provide financial advice. Our cost breakdowns are informational resources to help you plan, not professional financial recommendations. We strongly encourage anyone starting a business to consult with an accountant, lawyer, and insurance professional for advice specific to their situation, location, and business structure.</p>
+        <p>We don&apos;t give financial advice. These are informational resources, not professional recommendations. Talk to an accountant, a lawyer, and an insurance professional before you start.</p>
 
-        <p>We don&apos;t guarantee specific outcomes. A business that costs $50,000 to start and breaks even in 12 months on average may take you 6 months or 24 months depending on your market, execution, and circumstances. Our estimates are informed guideposts, not promises.</p>
+        <p>We don&apos;t guarantee outcomes. A business that costs $50,000 to start and breaks even in 12 months on average might take you 6 or 24. Our numbers are guideposts, not promises.</p>
 
-        <p>We don&apos;t accept payment for favorable coverage. No business, tool, or service provider can pay to be featured in our guides or to have their costs presented more favorably. Our editorial content is independent of any commercial relationships.</p>
+        <p>We don&apos;t accept payment for favorable coverage. No one can pay to be featured or to have their costs presented differently.</p>
       </div>
     </article>
   );
