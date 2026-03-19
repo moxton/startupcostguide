@@ -32,11 +32,11 @@ export default function HomePage() {
       {/* HERO */}
       <section className="scg-hero">
         <div className="scg-hero-inner">
-          <div className="scg-hero-badge">100 businesses. Real numbers.</div>
+          <div className="scg-hero-badge">Researched from scratch, not copied</div>
           <h1>How Much Does It <em>Really</em> Cost to Start a Business?</h1>
-          <p>Not &ldquo;it depends.&rdquo; Line items. Hidden costs. The numbers everyone else leaves out.</p>
+          <p>Real cost breakdowns for 100+ business types. Line items, hidden costs, breakeven timelines.</p>
           <div className="scg-hero-ctas">
-            <Link href="/cost-to-start-a-restaurant" className="scg-hero-btn scg-hero-btn-primary">Browse 100 Guides</Link>
+            <Link href="/guides" className="scg-hero-btn scg-hero-btn-primary">Browse All Guides</Link>
             <Link href="/calculator" className="scg-hero-btn scg-hero-btn-secondary">Try the Calculator</Link>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="scg-section-label" style={{ color: 'var(--mid)' }}>Most Popular</div>
         <h2 className="scg-section-title" style={{ color: 'var(--ink)' }}>Featured Cost Guides</h2>
         <p style={{ color: 'var(--mid)', fontSize: 18, marginBottom: 48 }}>
-          The businesses people ask about most. The deepest breakdowns we publish.
+          The most-searched business types with full cost breakdowns.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="scg-section-label">Browse by Category</div>
           <h2 className="scg-section-title" style={{ color: '#fff' }}>Pick Your Industry</h2>
           <p style={{ color: '#9ca3af', fontSize: 18, marginBottom: 40 }}>
-            100 businesses. 11 categories. Every cost accounted for.
+            100+ businesses across 11 categories. Every cost accounted for.
           </p>
           <div className="scg-cat-grid">
             {categories.map(cat => {
@@ -98,14 +98,14 @@ export default function HomePage() {
       </section>
 
       {/* COMMUNITY DATA CTA */}
-      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px 80px' }}>
-        <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none' }}>
-          <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22 }}>You started a business. What did it actually cost?</h3>
-          <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 16, lineHeight: 1.6 }}>
-            We&apos;re collecting real startup costs from real business owners. Anonymous. 60 seconds. The next person planning your type of business will thank you.
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 80px', textAlign: 'center' }}>
+        <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none', padding: '48px 40px' }}>
+          <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 12 }}>You started a business. What did it actually cost?</h3>
+          <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 24, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 24px' }}>
+            We&apos;re collecting real startup costs from real owners. Anonymous. 60 seconds. The next person planning your type of business will thank you.
           </p>
-          <Link href="/cost-to-start-a-restaurant" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
-            Browse Guides &amp; Submit Your Costs
+          <Link href="/guides" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
+            Find Your Business &amp; Share
           </Link>
         </div>
       </div>

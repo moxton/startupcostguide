@@ -169,7 +169,7 @@ export default function Calculator() {
             <input
               type="text"
               className="biz-search"
-              placeholder="Search 100 business types..."
+              placeholder="Search 100+ business types..."
               value={searchText}
               onChange={e => { setSearchText(e.target.value); setDropdownOpen(true); }}
               onFocus={() => setDropdownOpen(true)}
@@ -195,9 +195,8 @@ export default function Calculator() {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Category filters */}
+          {/* Category filters - inside wrapRef so outside-click handler doesn't close dropdown */}
           <div className="cat-filters">
             <button
               className={`cat-btn${!activeCat ? ' active' : ''}`}
@@ -214,6 +213,7 @@ export default function Calculator() {
                 {c} ({DATA.filter(d => d.cat === c).length})
               </button>
             ))}
+          </div>
           </div>
 
           {/* Quick picks */}

@@ -20,7 +20,7 @@ export const metadata = {
     default: 'Startup Cost Guide - Real Business Startup Cost Breakdowns',
     template: '%s | Startup Cost Guide',
   },
-  description: 'Detailed startup cost breakdowns for 100+ business types. Real numbers, hidden costs, and breakeven timelines from a founder who built and sold a company.',
+  description: 'Detailed startup cost breakdowns for 100+ business types. Real numbers, hidden costs, and breakeven timelines researched from scratch.',
   openGraph: {
     siteName: 'Startup Cost Guide',
     type: 'website',
@@ -54,6 +54,14 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDP10CYBK1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JDP10CYBK1');`,
+          }}
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
