@@ -13,7 +13,6 @@ const FEATURED_SLUGS = [
 ];
 
 function getGuideCount(categoryTitle) {
-  // Map category page titles to the category values in guides-index
   const normalized = categoryTitle
     .replace(' Business Startup Costs', '')
     .replace(' Startup Costs', '');
@@ -36,6 +35,10 @@ export default function HomePage() {
           <div className="scg-hero-badge">Researched from scratch, not copied</div>
           <h1>How Much Does It <em>Really</em> Cost to Start a Business?</h1>
           <p>Not the vague &ldquo;it depends&rdquo; answer. Real cost breakdowns with line items, hidden expenses, and the numbers most guides leave out.</p>
+          <div className="scg-hero-ctas">
+            <Link href="/cost-to-start-a-restaurant" className="scg-hero-btn scg-hero-btn-primary">Browse 100 Guides</Link>
+            <Link href="/calculator" className="scg-hero-btn scg-hero-btn-secondary">Try the Calculator</Link>
+          </div>
         </div>
       </section>
 
@@ -83,52 +86,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CREDIBILITY BANNER */}
+      {/* CREDIBILITY */}
       <section className="scg-cred">
         <div className="scg-cred-inner">
-          <div className="scg-cred-avatar">SCG</div>
-          <div>
-            <h3>Why trust these numbers?</h3>
-            <p>
-              <strong>Most startup cost guides are useless.</strong> Not because the writers are lazy, but because they&apos;re copying each other. Article A cites Article B cites Article C, and somewhere back there someone just made a number up. We built Startup Cost Guide because we got tired of it. Every breakdown here is researched from scratch: SBA data, industry reports, and real conversations with people who&apos;ve actually opened these businesses.{' '}
-              <Link href="/methodology">Read our methodology &rarr;</Link>
-            </p>
-          </div>
+          <h3>Why trust these numbers?</h3>
+          <p>
+            <strong>Most startup cost guides are useless.</strong> Not because the writers are lazy, but because they&apos;re copying each other. Article A cites Article B cites Article C, and somewhere back there someone just made a number up. We built Startup Cost Guide because we got tired of it. Every breakdown here is researched from scratch: SBA data, industry reports, and real conversations with people who&apos;ve actually opened these businesses.{' '}
+            <Link href="/methodology">Read our methodology &rarr;</Link>
+          </p>
         </div>
       </section>
 
       {/* COMMUNITY DATA CTA */}
-      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px 0' }}>
-        <div className="cost-submit-form">
-          <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none' }}>
-            <h3 style={{ color: 'var(--accent)' }}>Already started a business? Share what you actually spent.</h3>
-            <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 16 }}>
-              We&apos;re building the largest database of real startup costs reported by actual business owners. Your anonymous submission helps the next person plan better. Find your business type and share your numbers.
-            </p>
-            <Link href="/cost-to-start-a-restaurant" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
-              Browse Guides &amp; Submit Your Costs
-            </Link>
-          </div>
+      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px 80px' }}>
+        <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none' }}>
+          <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22 }}>Already started a business? Share what you actually spent.</h3>
+          <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 16, lineHeight: 1.6 }}>
+            We&apos;re building the largest database of real startup costs reported by actual business owners. Your anonymous submission helps the next person plan better.
+          </p>
+          <Link href="/cost-to-start-a-restaurant" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
+            Browse Guides &amp; Submit Your Costs
+          </Link>
         </div>
-      </div>
-
-      {/* ESSENTIAL TOOLS */}
-      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px' }}>
-        <div className="scg-section-label" style={{ color: 'var(--mid)' }}>Recommended</div>
-        <h2 className="scg-section-title" style={{ color: 'var(--ink)' }}>Essential Tools for New Business Owners</h2>
-        <p style={{ color: 'var(--mid)', fontSize: 18, marginBottom: 40 }}>
-          Regardless of what you&apos;re starting, you&apos;ll need some combination of these.
-        </p>
-
-        <p><strong>Business Formation:</strong> <a href="/recommends/legalzoom/" rel="nofollow sponsored" target="_blank">LegalZoom</a>  - Form your LLC, get your EIN, and handle basic legal setup in one place.</p>
-        <p><strong>Accounting:</strong> <a href="/recommends/quickbooks/" rel="nofollow sponsored" target="_blank">QuickBooks</a>  - Track income, expenses, mileage, and taxes from day one.</p>
-        <p><strong>Business Insurance:</strong> <a href="/recommends/next-insurance/" rel="nofollow sponsored" target="_blank">Next Insurance</a>  - General liability, professional liability, and commercial auto quotes in minutes.</p>
-        <p><strong>Payments:</strong> <a href="/recommends/square-pos/" rel="nofollow sponsored" target="_blank">Square</a>  - Accept card payments from day one. Free reader, simple pricing.</p>
-        <p><strong>Payroll:</strong> <a href="/recommends/gusto-payroll/" rel="nofollow sponsored" target="_blank">Gusto</a>  - When you hire your first employee, Gusto handles payroll, taxes, and benefits.</p>
-
-        <p style={{ fontSize: 13, color: 'var(--mid)', fontStyle: 'italic', padding: '12px 16px', background: '#fafaf8', borderRadius: 8, borderLeft: '3px solid var(--light)', marginTop: 24 }}>
-          Some links above are affiliate links. We may earn a commission if you sign up  - at no extra cost to you. We only recommend tools we&apos;d use ourselves.
-        </p>
       </div>
     </>
   );
