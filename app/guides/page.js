@@ -4,30 +4,48 @@ import categories from '@/src/data/categories.json';
 import { formatShortRange } from '@/src/lib/formatCurrency';
 
 export const metadata = {
-  title: 'All 100 Startup Cost Guides',
-  description: 'Browse detailed startup cost breakdowns for 100 business types. Line-item costs, hidden expenses, and breakeven timelines for every industry.',
+  title: 'All 100+ Startup Cost Guides',
+  description: 'Browse detailed startup cost breakdowns for 100+ business types. Line-item costs, hidden expenses, and breakeven timelines for every industry.',
 };
 
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 export default function GuidesPage() {
-  // Group guides by category
   const grouped = {};
   for (const guide of guidesIndex) {
     if (!grouped[guide.category]) grouped[guide.category] = [];
     grouped[guide.category].push(guide);
   }
 
-  // Sort categories by guide count (most first)
   const sortedCats = Object.entries(grouped).sort((a, b) => b[1].length - a[1].length);
 
   return (
     <div className="article-wrap">
       <div className="entry-content">
-        <h1>All 100 Startup Cost Guides</h1>
+        <h1>All 100+ Startup Cost Guides</h1>
         <p>Every business type we cover. Pick one and get the real numbers.</p>
       </div>
 
+      {/* Table of contents */}
+      <nav style={{ margin: '32px 0 48px', padding: '24px 28px', background: 'var(--card-bg)', border: '1px solid var(--light)', borderRadius: 'var(--radius-lg)' }}>
+        <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--mid)', marginBottom: 12 }}>Jump to category</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+          {sortedCats.map(([category, guides]) => (
+            <a
+              key={category}
+              href={`#${slugify(category)}`}
+              style={{ color: 'var(--ink)', textDecoration: 'none', fontSize: 15, fontWeight: 500, borderBottom: '1px solid var(--light)', paddingBottom: 2 }}
+            >
+              {category} <span style={{ color: 'var(--mid)', fontSize: 13 }}>({guides.length})</span>
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {sortedCats.map(([category, guides]) => (
-        <div key={category} style={{ marginTop: 48 }}>
+        <div key={category} id={slugify(category)} style={{ marginTop: 48, scrollMarginTop: 80 }}>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 24, fontWeight: 700, marginBottom: 20, paddingBottom: 12, borderBottom: '2px solid var(--light)' }}>
             {category} <span style={{ color: 'var(--mid)', fontSize: 16, fontWeight: 400 }}>({guides.length})</span>
           </h2>
