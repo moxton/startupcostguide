@@ -147,7 +147,11 @@ export default function Calculator() {
     setSelectedBiz(biz);
     setSearchText(biz.biz);
     setDropdownOpen(false);
-    setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    // Scroll to Step 2 (sliders) first, not results
+    setTimeout(() => {
+      const step2 = document.getElementById('calc-step-2');
+      if (step2) step2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   }
 
   return (
@@ -232,7 +236,7 @@ export default function Calculator() {
 
         {/* STEP 2: Sliders */}
         {selectedBiz && (
-          <div className="step-card">
+          <div className="step-card" id="calc-step-2">
             <div className="step-label">Step 2</div>
             <h2 className="step-title">Customize your estimate</h2>
 

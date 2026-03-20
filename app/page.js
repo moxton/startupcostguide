@@ -104,8 +104,8 @@ export default function HomePage() {
           <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 24, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 24px' }}>
             We&apos;re collecting real startup costs from real owners. Anonymous. 60 seconds. Find your business type, then share what you spent on that page.
           </p>
-          <Link href="/guides" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
-            Find Your Business Type
+          <Link href="/submit" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
+            Share What You Spent
           </Link>
         </div>
       </div>
