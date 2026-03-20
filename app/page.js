@@ -102,10 +102,10 @@ export default function HomePage() {
         <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none', padding: '48px 40px' }}>
           <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 12 }}>You started a business. What did it actually cost?</h3>
           <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 24, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 24px' }}>
-            We&apos;re collecting real startup costs from real owners. Anonymous. 60 seconds. The next person planning your type of business will thank you.
+            We&apos;re collecting real startup costs from real owners. Anonymous. 60 seconds. Find your business type, then share what you spent on that page.
           </p>
           <Link href="/guides" style={{ display: 'inline-block', background: 'var(--accent)', color: 'var(--ink)', padding: '12px 28px', borderRadius: 100, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em', textDecoration: 'none' }}>
-            Find Your Business &amp; Share
+            Find Your Business Type
           </Link>
         </div>
       </div>

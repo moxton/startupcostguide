@@ -1379,20 +1379,17 @@ a:hover {
 .cost-submit-form {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 2px solid var(--light);
 }
 .cost-submit-prompt {
-  background: rgba(232, 255, 89, 0.04);
+  background: var(--paper);
   border: 1px solid var(--light);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius-lg);
-  padding: 24px 28px;
+  padding: 20px 24px;
   cursor: pointer;
   transition: var(--transition);
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
+  flex-direction: column;
+  gap: 12px;
 }
 .cost-submit-prompt:hover {
   border-color: var(--accent);
@@ -1400,18 +1397,19 @@ a:hover {
 }
 .cost-submit-prompt strong {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 16px;
 }
 .cost-submit-cta {
-  margin-left: auto;
+  display: inline-block;
   background: var(--ink);
   color: var(--accent);
   padding: 8px 20px;
   border-radius: 100px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  align-self: flex-start;
 }
 .cost-submit-card {
   background: #fff;
