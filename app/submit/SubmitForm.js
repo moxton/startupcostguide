@@ -76,7 +76,7 @@ export default function SubmitForm() {
       <div className="submit-page-inner">
         <div className="submit-hero">
           <h1>You started a business.<br />What did it <em>actually</em> cost?</h1>
-          <p>Anonymous. 60 seconds. Your real numbers help the next founder plan better.</p>
+          <p>Anonymous. 60 seconds.<br />Your real numbers help the next founder plan better.</p>
         </div>
 
         <form className="submit-form-card" onSubmit={handleSubmit}>

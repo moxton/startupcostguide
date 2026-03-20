@@ -360,7 +360,7 @@ export default function Calculator() {
         <p>
           <strong>Disclaimer:</strong> This calculator provides estimates based on national averages.
           Your actual costs will vary based on location, scale, and vendor choices. These are starting
-          points for planning — not financial advice.{' '}
+          points for planning - not financial advice.{' '}
           <Link href="/methodology">Read our methodology &rarr;</Link>
         </p>
       </div>
