@@ -109,6 +109,109 @@ if (dataMatch) {
 }
 
 // ============================================================
+// STEP 2b: Inject data tables into CSV-sourced guides
+// ============================================================
+console.log('Injecting data tables into guides...');
+{
+  const calcJson = JSON.parse(readFileSync(join(DATA_DIR, 'calculator-data.json'), 'utf8'));
+  const bizBySlug = Object.fromEntries(calcJson.businesses.map(b => [b.slug, b]));
+  const fmtDollar = n => '$' + Math.round(n).toLocaleString('en-US');
+
+  function getMonthlyRows(biz) {
+    const monthly = biz.costs.filter(c => c.type === 'recurring-monthly');
+    if (monthly.length > 0) return monthly.map(c => ({ name: c.name, low: c.low, high: c.high }));
+    const derivable = biz.costs.filter(c => {
+      const n = c.name.toLowerCase();
+      return c.type === 'one-time' && (n.includes('marketing') || n.includes('insurance') || n.includes('working capital') || n.includes('supplies') || n.includes('inventory'));
+    });
+    const annuals = biz.costs.filter(c => c.type === 'recurring-annual');
+    const rows = [];
+    for (const c of derivable) rows.push({ name: c.name + ' (est.)', low: Math.round(c.low / 12), high: Math.round(c.high / 12) });
+    for (const c of annuals) rows.push({ name: c.name, low: Math.round(c.low / 12), high: Math.round(c.high / 12) });
+    if (rows.length === 0) {
+      const tLow = biz.costs.reduce((s, c) => s + c.low, 0);
+      const tHigh = biz.costs.reduce((s, c) => s + c.high, 0);
+      rows.push({ name: 'Estimated Operating Costs', low: Math.round(tLow * 0.15), high: Math.round(tHigh * 0.15) });
+    }
+    return rows;
+  }
+
+  function insertAfterH2(content, h2Title, html) {
+    const re = new RegExp(`(<h2>${h2Title}</h2>)`, 'i');
+    const m = content.match(re);
+    if (!m) return null;
+    const pos = content.indexOf(m[0]);
+    const next = content.indexOf('<h2>', pos + m[0].length);
+    if (next === -1) return null;
+    return content.slice(0, next) + html + '\n\n' + content.slice(next);
+  }
+
+  function insertBeforeH2(content, h2Title, html) {
+    const re = new RegExp(`<h2>${h2Title}</h2>`, 'i');
+    const m = content.match(re);
+    if (!m) return null;
+    const pos = content.indexOf(m[0]);
+    return content.slice(0, pos) + html + '\n\n' + content.slice(pos);
+  }
+
+  let tablesAdded = 0;
+  // Only process CSV-sourced guides (those in guidesIndex from Step 1)
+  for (const entry of guidesIndex) {
+    const biz = bizBySlug[entry.slug];
+    if (!biz) continue;
+    const fp = join(GUIDES_DIR, `${entry.slug}.json`);
+    if (!existsSync(fp)) continue;
+    const guide = JSON.parse(readFileSync(fp, 'utf8'));
+    if (guide.content.includes('Monthly Operating Costs')) continue;
+
+    let content = guide.content;
+    let modified = false;
+
+    // Monthly Operating Costs table
+    const monthlyRows = getMonthlyRows(biz);
+    const mLow = monthlyRows.reduce((s, r) => s + r.low, 0);
+    const mHigh = monthlyRows.reduce((s, r) => s + r.high, 0);
+    let mHtml = '<h3>Monthly Operating Costs</h3>\n<table><thead><tr><th>Expense</th><th>Low Estimate</th><th>High Estimate</th></tr></thead><tbody>\n';
+    for (const r of monthlyRows) mHtml += `<tr><td>${r.name}</td><td>${fmtDollar(r.low)}/mo</td><td>${fmtDollar(r.high)}/mo</td></tr>\n`;
+    mHtml += `<tr style="font-weight:700"><td>Total Monthly</td><td>${fmtDollar(mLow)}/mo</td><td>${fmtDollar(mHigh)}/mo</td></tr>\n</tbody></table>`;
+    const r1 = insertAfterH2(content, 'Detailed Cost Breakdown', mHtml);
+    if (r1) { content = r1; modified = true; }
+
+    // Breakeven Timeline table
+    const { beLo, beHi } = biz;
+    let stages;
+    if (beHi <= 6) stages = [['Months 1\u20132','Launch & initial sales','Operating at a loss'],['Months 2\u20134','Building customer base','Revenue growing'],['Months 4\u20136','Reaching profitability','At or near breakeven'],['Months 6\u201312','Growth & reinvestment','Generating profit']];
+    else if (beHi <= 12) stages = [['Months 1\u20133','Launch & ramp-up','Operating at a loss'],['Months 3\u20136','Building momentum','Still in the red'],['Months 6\u20139','Approaching breakeven','Narrowing the gap'],['Months 9\u201312','Reaching profitability','At or near breakeven'],['Months 12+','Growth phase','Generating profit']];
+    else if (beHi <= 18) stages = [['Months 1\u20133','Launch & ramp-up','Operating at a loss'],['Months 3\u20136','Early growth','High expenses'],['Months 6\u201312','Building customer base','Revenue growing'],['Months 12\u201318','Approaching breakeven','Closing the gap'],['Months 18+','Profitability','Generating profit']];
+    else stages = [['Months 1\u20133','Launch & ramp-up','Operating at a loss'],['Months 3\u20136','Early operations','Revenue building slowly'],['Months 6\u201312','Establishing the business','Gap remains'],['Months 12\u201318','Growing revenue','Reducing losses'],['Months 18\u201324','Approaching breakeven','Closing the gap'],['Months 24+','Profitability','Generating profit']];
+    let bHtml = '<h3>Typical Breakeven Timeline</h3>\n<table><thead><tr><th>Period</th><th>Stage</th><th>Revenue vs. Costs</th></tr></thead><tbody>\n';
+    for (const [p, s, r] of stages) bHtml += `<tr><td>${p}</td><td>${s}</td><td>${r}</td></tr>\n`;
+    bHtml += `</tbody></table>\n<p>Most ${biz.biz.toLowerCase()} owners break even within <strong>${beLo}\u2013${beHi} months</strong>.</p>`;
+    for (const t of ["How Long Until You\u2019re Profitable\\?", "How Long Until You're Profitable\\?", "How Long Until You.re Profitable."]) {
+      const r2 = insertAfterH2(content, t, bHtml);
+      if (r2) { content = r2; modified = true; break; }
+    }
+
+    // First-Year Cash Flow table
+    const otLow = biz.costs.filter(c => c.type === 'one-time').reduce((s, c) => s + c.low, 0);
+    const otHigh = biz.costs.filter(c => c.type === 'one-time').reduce((s, c) => s + c.high, 0);
+    const aLow = biz.costs.filter(c => c.type === 'recurring-annual').reduce((s, c) => s + c.low, 0);
+    const aHigh = biz.costs.filter(c => c.type === 'recurring-annual').reduce((s, c) => s + c.high, 0);
+    const sLow = otLow + aLow, sHigh = otHigh + aHigh;
+    const opLow = mLow * 12, opHigh = mHigh * 12;
+    let fHtml = '<h3>First-Year Cash Flow Summary</h3>\n<table><thead><tr><th>Category</th><th>Low</th><th>High</th></tr></thead><tbody>\n';
+    fHtml += `<tr><td>One-Time Startup Costs</td><td>${fmtDollar(sLow)}</td><td>${fmtDollar(sHigh)}</td></tr>\n`;
+    fHtml += `<tr><td>12 Months Operating Costs</td><td>${fmtDollar(opLow)}</td><td>${fmtDollar(opHigh)}</td></tr>\n`;
+    fHtml += `<tr style="font-weight:700;border-top:2px solid #333"><td>Total First Year</td><td>${fmtDollar(sLow+opLow)}</td><td>${fmtDollar(sHigh+opHigh)}</td></tr>\n</tbody></table>`;
+    const r3 = insertBeforeH2(content, 'How to Start for Less', fHtml);
+    if (r3) { content = r3; modified = true; }
+
+    if (modified) { guide.content = content; writeFileSync(fp, JSON.stringify(guide)); tablesAdded++; }
+  }
+  console.log(`  → ${tablesAdded} guides enriched with data tables`);
+}
+
+// ============================================================
 // STEP 3: Parse category pages
 // ============================================================
 console.log('Parsing category pages...');
