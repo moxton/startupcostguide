@@ -5,7 +5,7 @@ import { formatShortRange } from '@/src/lib/formatCurrency';
 import GuidesSearch from '@/src/components/GuidesSearch';
 
 export const metadata = {
-  title: 'All 100+ Startup Cost Guides',
+  title: 'All Startup Cost Guides | Browse by Business Type',
   description: 'Browse detailed startup cost breakdowns for 100+ business types. Line-item costs, hidden expenses, and breakeven timelines for every industry.',
 };
 
@@ -14,8 +14,11 @@ function slugify(text) {
 }
 
 export default function GuidesPage() {
+  // Only show base guides (no state-specific or comparison pages)
+  const baseGuides = guidesIndex.filter(g => !g.slug.includes('-in-') && !g.slug.includes('-vs-'));
+
   const grouped = {};
-  for (const guide of guidesIndex) {
+  for (const guide of baseGuides) {
     if (!grouped[guide.category]) grouped[guide.category] = [];
     grouped[guide.category].push(guide);
   }
@@ -25,8 +28,21 @@ export default function GuidesPage() {
   return (
     <div className="article-wrap">
       <div className="entry-content">
-        <h1>All 100+ Startup Cost Guides</h1>
-        <p>Every business type we cover. Pick one and get the real numbers.</p>
+        <h1>Startup Cost Guides</h1>
+        <p>Real cost breakdowns for 100+ business types. Pick one and get the numbers.</p>
+      </div>
+
+      {/* Browse navigation */}
+      <div style={{ display: 'flex', gap: 12, marginBottom: 28, flexWrap: 'wrap' }}>
+        <span style={{ padding: '8px 16px', background: 'var(--ink)', color: '#fff', borderRadius: 100, fontSize: 14, fontWeight: 600 }}>
+          By Business Type
+        </span>
+        <Link href="/states" style={{ padding: '8px 16px', background: 'var(--card-bg)', color: 'var(--ink)', border: '1px solid var(--light)', borderRadius: 100, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>
+          By State
+        </Link>
+        <Link href="/compare" style={{ padding: '8px 16px', background: 'var(--card-bg)', color: 'var(--ink)', border: '1px solid var(--light)', borderRadius: 100, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>
+          Comparisons
+        </Link>
       </div>
 
       <GuidesSearch guides={guidesIndex} />

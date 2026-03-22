@@ -24,6 +24,7 @@ export default function Header() {
         </button>
         <nav className={`nav-links${menuOpen ? ' open' : ''}`}>
           <Link href="/guides" onClick={() => setMenuOpen(false)}>Guides</Link>
+          <Link href="/states" onClick={() => setMenuOpen(false)}>By State</Link>
           <Link href="/calculator" onClick={() => setMenuOpen(false)}>Calculator</Link>
           <Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
           <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
