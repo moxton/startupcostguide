@@ -2,6 +2,7 @@ import Link from 'next/link';
 import guidesIndex from '@/src/data/guides-index.json';
 import categories from '@/src/data/categories.json';
 import { formatShortRange } from '@/src/lib/formatCurrency';
+import GuidesSearch from '@/src/components/GuidesSearch';
 
 export const metadata = {
   title: 'All 100+ Startup Cost Guides',
@@ -27,6 +28,8 @@ export default function GuidesPage() {
         <h1>All 100+ Startup Cost Guides</h1>
         <p>Every business type we cover. Pick one and get the real numbers.</p>
       </div>
+
+      <GuidesSearch guides={guidesIndex} />
 
       {/* Table of contents */}
       <nav style={{ margin: '32px 0 48px', padding: '24px 28px', background: 'var(--card-bg)', border: '1px solid var(--light)', borderRadius: 'var(--radius-lg)' }}>

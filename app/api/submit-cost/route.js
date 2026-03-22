@@ -1,4 +1,8 @@
 import { NextResponse } from 'next/server';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+const COMMUNITY_PATH = join(process.cwd(), 'src', 'data', 'community-costs.json');
 
 export async function POST(request) {
   try {
@@ -51,6 +55,25 @@ export async function POST(request) {
     } else {
       // Fallback: log to server console (submissions still accepted, just not stored externally)
       console.log('[Cost Submission]', JSON.stringify(data));
+    }
+
+    // Also store locally for community display
+    try {
+      const local = existsSync(COMMUNITY_PATH)
+        ? JSON.parse(readFileSync(COMMUNITY_PATH, 'utf-8'))
+        : {};
+      if (!local[data.slug]) local[data.slug] = [];
+      local[data.slug].push({
+        totalSpent: data.totalSpent,
+        year: data.year || null,
+        state: data.state || null,
+        surprise: data.surprise || null,
+        advice: data.advice || null,
+        submittedAt: data.submittedAt || new Date().toISOString(),
+      });
+      writeFileSync(COMMUNITY_PATH, JSON.stringify(local, null, 2));
+    } catch (localErr) {
+      console.error('Local storage error:', localErr);
     }
 
     return NextResponse.json({ success: true });
