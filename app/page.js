@@ -43,10 +43,10 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED GUIDES */}
-      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '64px 24px' }}>
+      <div style={{ maxWidth: 1140, margin: '0 auto', padding: '44px 24px' }}>
         <div className="scg-section-label" style={{ color: 'var(--mid)' }}>Most Popular</div>
         <h2 className="scg-section-title" style={{ color: 'var(--ink)' }}>Featured Cost Guides</h2>
-        <p style={{ color: 'var(--mid)', fontSize: 18, marginBottom: 48 }}>
+        <p style={{ color: 'var(--mid)', fontSize: 18, marginBottom: 24 }}>
           The most-searched business types with full cost breakdowns.
         </p>
       </div>
@@ -63,7 +63,7 @@ export default function HomePage() {
       </div>
 
       {/* CATEGORIES */}
-      <section className="scg-categories" style={{ marginTop: 64 }}>
+      <section className="scg-categories" style={{ marginTop: 44 }}>
         <div className="scg-categories-inner">
           <div className="scg-section-label">Browse by Category</div>
           <h2 className="scg-section-title" style={{ color: '#fff' }}>Pick Your Industry</h2>
@@ -98,7 +98,7 @@ export default function HomePage() {
       </section>
 
       {/* COMMUNITY DATA CTA */}
-      <div style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 80px', textAlign: 'center' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '44px 24px 64px', textAlign: 'center' }}>
         <div className="cost-submit-card" style={{ background: 'var(--ink)', color: '#fff', border: 'none', padding: '48px 40px' }}>
           <h3 style={{ color: 'var(--accent)', fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 12 }}>You started a business. What did it actually cost?</h3>
           <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 24, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 24px' }}>

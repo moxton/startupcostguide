@@ -84,6 +84,7 @@ export default async function SlugPage({ params }) {
     return (
       <article className="article-wrap">
         <div className="category-badge">{guide.category}</div>
+        <h1 className="guide-h1">{guide.title}</h1>
         <div className="cost-badge">{formatRange(guide.costLow, guide.costHigh)}</div>
         <div className="entry-content" dangerouslySetInnerHTML={{ __html: guide.content }} />
         <CostSubmissionForm businessType={guide.businessType} slug={slug} />

@@ -218,6 +218,16 @@ a:hover {
   margin-bottom: 12px;
 }
 
+/* Guide H1 */
+.guide-h1 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
 /* Cost range badge */
 .cost-badge {
   display: inline-block;
@@ -555,7 +565,7 @@ a:hover {
    ============================================================ */
 .scg-hero {
   background: var(--ink);
-  padding: 80px 24px 120px;
+  padding: 64px 24px 80px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -649,8 +659,8 @@ a:hover {
    ============================================================ */
 .scg-guides-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
   max-width: var(--max-site);
   margin: 0 auto;
   padding: 0 24px;
@@ -659,7 +669,7 @@ a:hover {
   background: var(--card-bg);
   border: 1px solid var(--light);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 20px;
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
@@ -1322,13 +1332,13 @@ a:hover {
 }
 .blog-featured-card h2 {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--ink);
 }
 .blog-featured-card:first-child h2 {
-  font-size: 28px;
+  font-size: 24px;
 }
 .blog-featured-card p {
   color: var(--mid);
