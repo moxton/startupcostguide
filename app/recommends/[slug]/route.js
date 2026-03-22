@@ -39,6 +39,14 @@ const AFFILIATE_LINKS = {
   // Pet Business
   'petdesk': 'https://www.petdesk.com',
   'gingr': 'https://www.gingrapp.com',
+  // Trucking & Logistics
+  'dat-loadboard': 'https://www.dat.com',
+  'motive-eld': 'https://gomotive.com',
+  // Gym & Fitness Management
+  'pushpress': 'https://www.pushpress.com',
+  'trainerize': 'https://www.trainerize.com',
+  // Childcare
+  'brightwheel': 'https://www.brightwheel.com',
 };
 
 export async function GET(request, { params }) {

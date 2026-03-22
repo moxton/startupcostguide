@@ -316,23 +316,23 @@ const fundingBlog = {
 <h2>2. Friends &amp; Family</h2>
 <p>The second most common funding source for first-time founders. Keep it professional: put the terms in writing, be clear about risks, and treat it like a real investment  - because it is. The relationships are worth more than the money, so structure it in a way that survives the business failing.</p>
 
-<h2>3. SBA Microloans ($500–$50,000)</h2>
-<p>The SBA microloan program offers up to $50,000 through nonprofit intermediary lenders. Interest rates are typically 8–13%, and the application process is less intimidating than a traditional bank loan. These are specifically designed for startups and new businesses that lack the track record for conventional lending.</p>
+<h2>3. SBA Microloans ($500-$50,000)</h2>
+<p>The SBA microloan program offers up to $50,000 through nonprofit intermediary lenders. Interest rates are typically 8-13%, and the application process is less intimidating than a traditional bank loan. These are specifically designed for startups and new businesses that lack the track record for conventional lending.</p>
 
 <h2>4. SBA 7(a) Loans (Up to $5M)</h2>
-<p>The flagship SBA loan program. The SBA doesn't lend directly  - it guarantees a portion of the loan, which makes banks more willing to lend to small businesses. You'll need a solid business plan, reasonable credit (680+), and typically some collateral. Processing takes 30–90 days.</p>
+<p>The flagship SBA loan program. The SBA doesn't lend directly  - it guarantees a portion of the loan, which makes banks more willing to lend to small businesses. You'll need a solid business plan, reasonable credit (680+), and typically some collateral. Processing takes 30-90 days.</p>
 
 <h2>5. Business Credit Cards</h2>
-<p>Not ideal for large startup costs, but useful for bridging gaps and covering early operating expenses. Many business cards offer 0% APR for 12–15 months, which is essentially a free short-term loan if you can pay it off. The danger is obvious: 20%+ interest rates after the intro period.</p>
+<p>Not ideal for large startup costs, but useful for bridging gaps and covering early operating expenses. Many business cards offer 0% APR for 12-15 months, which is essentially a free short-term loan if you can pay it off. The danger is obvious: 20%+ interest rates after the intro period.</p>
 
 <h2>6. Equipment Financing</h2>
-<p>If your biggest startup cost is equipment (food trucks, salon chairs, pressure washers, brewing systems), equipment financing lets you spread the cost over 2–7 years with the equipment itself as collateral. Approval is often easier than unsecured loans because the lender can repossess the equipment if you default.</p>
+<p>If your biggest startup cost is equipment (food trucks, salon chairs, pressure washers, brewing systems), equipment financing lets you spread the cost over 2-7 years with the equipment itself as collateral. Approval is often easier than unsecured loans because the lender can repossess the equipment if you default.</p>
 
 <h2>7. Crowdfunding</h2>
 <p>Platforms like Kickstarter and Indiegogo work for product-based businesses with a compelling story. Service businesses rarely succeed here. The hidden cost: a successful campaign requires significant upfront marketing effort and ongoing fulfillment obligations. It's not free money  - it's pre-selling with extra steps.</p>
 
 <h2>The Funding Mistake That Sinks Businesses</h2>
-<p>Under-capitalization. It's not failing to raise enough money to open  - it's failing to raise enough money to survive the first 3–6 months of operations when revenue is lower than projected. Whatever your startup cost estimate is, add 20–30% as an operating cash buffer. If you don't need it, you'll have a comfortable reserve. If you do need it  - and you probably will  - it's the difference between a challenging start and a failed one.</p>
+<p>Under-capitalization. It's not failing to raise enough money to open  - it's failing to raise enough money to survive the first 3-6 months of operations when revenue is lower than projected. Whatever your startup cost estimate is, add 20-30% as an operating cash buffer. If you don't need it, you'll have a comfortable reserve. If you do need it  - and you probably will  - it's the difference between a challenging start and a failed one.</p>
 
 <hr>
 <p><em>Browse our <a href="/">full library of business cost guides</a> for detailed breakdowns of every business type.</em></p>`,
@@ -657,5 +657,74 @@ calcDataRaw.businesses.sort((a, b) => a.biz.localeCompare(b.biz));
 
 writeFileSync(join(DATA_DIR, 'calculator-data.json'), JSON.stringify(calcDataRaw));
 console.log(`  → ${calcAdded} new calculator entries added (${calcDataRaw.businesses.length} total)`);
+
+// ============================================================
+// STEP 8: Post-processing fixes for guide content accuracy
+// ============================================================
+
+// Fix "a [vowel-state]" grammar in state guides
+const vowelStates = ['Oklahoma','Ohio','Oregon','Iowa','Idaho','Indiana','Illinois','Alaska','Arizona','Arkansas','Alabama'];
+let grammarFixCount = 0;
+for (const file of readdirSync(GUIDES_DIR).filter(f => f.endsWith('.json'))) {
+  const fp = join(GUIDES_DIR, file);
+  const guideObj = JSON.parse(readFileSync(fp, 'utf-8'));
+  let content = guideObj.content || '';
+  let title = guideObj.title || '';
+  let meta = guideObj.metaDescription || '';
+  let seo = guideObj.seoTitle || '';
+  let changed = false;
+  for (const st of vowelStates) {
+    const re = new RegExp(`\\ba ${st}\\b`, 'g');
+    for (const field of ['content', 'title', 'metaDescription', 'seoTitle']) {
+      if (guideObj[field] && re.test(guideObj[field])) {
+        guideObj[field] = guideObj[field].replace(re, `an ${st}`);
+        changed = true;
+      }
+    }
+  }
+  if (changed) { writeFileSync(fp, JSON.stringify(guideObj)); grammarFixCount++; }
+}
+console.log(`  → Fixed a/an grammar in ${grammarFixCount} state guide files`);
+
+// Remove broken internal links from Comparing Startup Costs sections
+const brokenLinkFragments = {
+  'cost-to-start-a-nail-salon': ['mobile-nail-business'],
+  'cost-to-start-an-ecommerce-store': ['retail-store'],
+  'cost-to-start-a-landscaping-business': ['tree-service','snow-removal','irrigation'],
+  'cost-to-start-a-carpet-cleaning-business': ['tile-and-grout','water-damage-restoration','janitorial'],
+  'cost-to-start-a-barbershop': ['mobile-barbering','mens-grooming','beauty-school'],
+  'cost-to-start-a-cleaning-business': ['maid-service-franchise'],
+  'cost-to-start-a-trucking-company': ['freight-brokerage','dump-truck'],
+  'cost-to-start-a-gym': ['martial-arts','climbing-gym'],
+  'cost-to-start-a-daycare': ['nanny-agency','enrichment-program'],
+  'cost-to-start-a-food-truck': ['coffee-cart'],
+  'cost-to-start-a-photography-business': ['videography','photo-booth','drone-photography','print-shop'],
+  'cost-to-start-a-coffee-shop': ['tea-room'],
+  'cost-to-start-a-dog-daycare': ['pet-boarding'],
+  'cost-to-start-a-tutoring-business': ['test-prep','language-school'],
+  'cost-to-start-a-bar': ['wine-bar'],
+  'cost-to-start-a-tattoo-shop': ['piercing-studio'],
+  'cost-to-start-a-yoga-studio': ['meditation-center'],
+  'cost-to-start-a-personal-training-studio': ['online-coaching','physical-therapy'],
+  'cost-to-start-a-painting-business': ['drywall'],
+  'cost-to-start-a-hair-salon': ['mobile-hair-salon'],
+  'cost-to-start-an-auto-repair-shop': ['mobile-mechanic','auto-detailing'],
+};
+let brokenRemoved = 0;
+for (const [slug, frags] of Object.entries(brokenLinkFragments)) {
+  const fp = join(GUIDES_DIR, `${slug}.json`);
+  if (!existsSync(fp)) continue;
+  const guideObj = JSON.parse(readFileSync(fp, 'utf-8'));
+  let content = guideObj.content || '';
+  let changed = false;
+  for (const frag of frags) {
+    const escaped = frag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`<li><a href="[^"]*${escaped}[^"]*">[^<]*</a>[^<]*</li>\\n?`, 'g');
+    const newContent = content.replace(re, '');
+    if (newContent !== content) { content = newContent; changed = true; brokenRemoved++; }
+  }
+  if (changed) { guideObj.content = content; writeFileSync(fp, JSON.stringify(guideObj)); }
+}
+console.log(`  → Removed ${brokenRemoved} broken internal links from guide comparison sections`);
 
 console.log('\nDone! Data files written to src/data/');
