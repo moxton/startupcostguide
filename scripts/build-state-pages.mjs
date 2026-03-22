@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generates state-specific guide pages for the top 10 business types
- * across the initial 10 target states (100 pages total).
+ * across all 50 US states (500 pages total).
  *
  * Run with: node scripts/build-state-pages.mjs
  */
@@ -35,19 +35,8 @@ const TARGET_SLUGS = [
   'cost-to-start-a-pressure-washing-business',
 ];
 
-// Initial 10 states (keys from state-data.json)
-const TARGET_STATES = [
-  'california',
-  'texas',
-  'florida',
-  'new-york',
-  'illinois',
-  'pennsylvania',
-  'ohio',
-  'georgia',
-  'north-carolina',
-  'michigan',
-];
+// All 50 US states (keys from state-data.json)
+const TARGET_STATES = Object.keys(stateData);
 
 // ---------------------------------------------------------------------------
 // Cost adjustment logic
